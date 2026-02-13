@@ -41,6 +41,7 @@ export default function CalculatorScreen() {
   }
 
   function onPressKey(key) {
+    console.log("Pressed key:", key);
     // Prevent double operators
     if (/[+\-×÷]/.test(key) && /[+\-×÷]$/.test(expr)) {
       const next = expr.slice(0, -1) + key;
