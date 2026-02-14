@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { View, Text, TouchableOpacity, ScrollView, Modal } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { HistoryContext } from "../context/HistoryContext";
+import { evaluate } from "mathjs";
 
 const Button = ({ onPress, style, textStyle, children }) => (
   <TouchableOpacity
@@ -31,7 +32,13 @@ export default function CalculatorScreen() {
         return preview; // ya previous valid value
       }
       const safe = sanitized.replace(/[^-+*/0-9().]/g, "");
-      const result = eval(safe);
+      const result = evaluate(safe);
+
+      // const result = eval(safe);
+      // ✅ agar result decimal hai to sirf 4 digits show karo
+    if (!isNaN(result) && String(result).includes(".")) {
+      return parseFloat(result).toFixed(4).replace(/\.?0+$/, "");
+    }
       return String(result);
     } catch (e) {
       console.log("Invalid value:", value);
