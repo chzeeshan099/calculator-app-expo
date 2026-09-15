@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CalculatorScreen from "./src/screens/CalculatorScreen";
+import generateRandomNumber from "./src/screens/RandomNumberScreen";
 import { HistoryProvider } from "./src/context/HistoryContext";
 import "./global.css";
 const Stack = createNativeStackNavigator();
@@ -15,10 +15,10 @@ export default function App() {
           <SafeAreaView className="flex-1 bg-black">
             <StatusBar style="light" />
             <Stack.Navigator
-              initialRouteName="Calculator"
+              initialRouteName="RandomNumberScreen"
               screenOptions={{ headerShown: false }}
             >
-              <Stack.Screen name="Calculator" component={CalculatorScreen} />
+              <Stack.Screen name="RandomNumberScreen" component={generateRandomNumber} />
             </Stack.Navigator>
           </SafeAreaView>
         </NavigationContainer>

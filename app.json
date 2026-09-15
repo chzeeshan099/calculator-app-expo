@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Smart Calculator",
+    "name": "Random Number Generator",
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.zeeshandev099.smartcalculator"
+      "package": "com.zeeshandev099.randomnumbergenerator"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +33,9 @@
       "eas": {
         "projectId": "dd1bc9c5-2255-4b35-acfe-a69e9885c078"
       }
-    }
+    },
+    "plugins": [
+      "expo-status-bar"
+    ]
   }
 }
